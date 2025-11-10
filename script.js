@@ -38,7 +38,7 @@ function updateTime() {
     const msElapsed = now - startOfDay;
     const dayProgress = msElapsed / 86400000 * 100; // 86,400,000 ms in a day
 
-    percentageText.textContent = `Today is ${dayProgress.toFixed(1)}% complete`;
+    percentageText.textContent = `${(100-dayProgress).toFixed(1)}% left today`;
 
     const secondsLeft = Math.floor((86400000 - msElapsed) / 1000);
     let hours = Math.floor(secondsLeft / 3600);
@@ -55,4 +55,5 @@ function updateTime() {
 
 // Run the function once on load and then every second
 updateTime();
+
 setInterval(updateTime, 1000);
